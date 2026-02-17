@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
+<html><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radio Alonso - Transmisión en Vivo</title>
@@ -23,15 +22,14 @@
             height: 0;
             overflow: hidden;
             border-radius: 1.5rem;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             background: #000;
         }
 
         .video-container iframe, .video-container video {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%; border: none;
-            object-fit: contain; /* Para que la imagen de fondo no se corte */
-            background-color: #000;
+            object-fit: cover;
         }
 
         .admin-panel {
@@ -44,27 +42,26 @@
         .transition-all-custom { transition: all 0.4s ease; }
         
         .logo-img {
-            height: 70px;
+            height: 60px;
             width: auto;
             filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-            border-radius: 12px;
         }
     </style>
-</head>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.bottom-6{bottom:1.5rem}.right-0{right:0px}.right-6{right:1.5rem}.top-0{top:0px}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-1{margin-top:0.25rem}.mt-4{margin-top:1rem}.mt-8{margin-top:2rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-3{height:0.75rem}.h-64{height:16rem}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-3{width:0.75rem}.w-full{width:100%}.max-w-7xl{max-width:80rem}.max-w-md{max-width:28rem}.flex-grow{flex-grow:1}@keyframes ping{75%, 100%{transform:scale(2);opacity:0}}.animate-ping{animation:ping 1s cubic-bezier(0, 0, 0.2, 1) infinite}.resize-none{resize:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-8{gap:2rem}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-y-auto{overflow-y:auto}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-l{border-left-width:1px}.border-blue-100{--tw-border-opacity:1;border-color:rgb(219 234 254 / var(--tw-border-opacity, 1))}.border-blue-500{--tw-border-opacity:1;border-color:rgb(59 130 246 / var(--tw-border-opacity, 1))}.border-gray-100{--tw-border-opacity:1;border-color:rgb(243 244 246 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-red-400{--tw-bg-opacity:1;background-color:rgb(248 113 113 / var(--tw-bg-opacity, 1))}.bg-red-500{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.p-10{padding:2.5rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-8{padding:2rem}.py-4{padding-top:1rem;padding-bottom:1rem}.text-center{text-align:center}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[10px\]{font-size:10px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-none{line-height:1}.tracking-wide{letter-spacing:0.025em}.tracking-widest{letter-spacing:0.1em}.text-blue-500{--tw-text-opacity:1;color:rgb(59 130 246 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-500{--tw-text-opacity:1;color:rgb(234 179 8 / var(--tw-text-opacity, 1))}.opacity-75{opacity:0.75}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-blue-500\/20{--tw-shadow-color:rgb(59 130 246 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.outline-none{outline:2px solid transparent;outline-offset:2px}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:bg-black:hover{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.hover\:bg-blue-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-blue-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(59 130 246 / var(--tw-ring-opacity, 1))}@media (min-width: 640px){.sm\:block{display:block}}@media (min-width: 1024px){.lg\:col-span-4{grid-column:span 4 / span 4}.lg\:col-span-8{grid-column:span 8 / span 8}.lg\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.lg\:p-8{padding:2rem}}@media (prefers-color-scheme: dark){.dark\:border-slate-600{--tw-border-opacity:1;border-color:rgb(71 85 105 / var(--tw-border-opacity, 1))}.dark\:border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}.dark\:bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.dark\:bg-slate-700\/50{background-color:rgb(51 65 85 / 0.5)}.dark\:bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.dark\:bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.dark\:text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}}</style></head>
 <body class="dark transition-all-custom">
 
     <div class="min-h-screen flex flex-col" id="appContent">
         <!-- Header -->
         <header class="p-5 lg:p-8 flex justify-between items-center max-w-7xl mx-auto w-full">
             <div class="flex items-center gap-4">
-                <!-- Nuevo Logotipo actualizado -->
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglg169THzqP_o0wNpe4IJjpWjdwq-W9j_auZ0e3I1W6gMWEWmOClHhT4WrDuE5vAd6o5Xco7O9bwxIUzw5YR3maoYp935TaSUYnQ9xZsVThbyGtf2xssmYltNeD9ULT7GLyFvZ6uTPY6Ca7uA0lbt7UkuflK_p2_-YBsAyeu01xkUWLWI2C4Naa3KRCDk/s320/ChatGPT%20Image%2017%20feb%202026,%2010_58_47%20a.m..png" alt="Radio Alonso Logo" class="logo-img">
+                <!-- Logotipo con la imagen proporcionada -->
+                <img src="https://r.jina.ai/i/037a541603ba45048d0df7329591e0a8" alt="Radio Alonso Logo" class="logo-img">
                 <div class="hidden sm:block">
-                    <h1 class="text-3xl font-black uppercase leading-none tracking-tight">Radio <span class="text-blue-600">Alonso</span></h1>
-                    <p class="text-xs font-bold text-gray-500 tracking-[0.2em] mt-1 italic">Voz e Imagen Digital</p>
+                    <h1 class="text-3xl font-black uppercase leading-none">Radio <span class="text-blue-600">Alonso</span></h1>
+                    <p class="text-xs font-bold text-gray-500 tracking-widest mt-1">EMISIÓN DIGITAL</p>
                 </div>
             </div>
-            <button id="themeToggle" class="p-4 rounded-2xl bg-white dark:bg-slate-800 text-yellow-500 shadow-sm border border-gray-100 dark:border-slate-700 hover:scale-105 transition-transform">
+            <button id="themeToggle" class="p-4 rounded-2xl bg-white dark:bg-slate-800 text-yellow-500 shadow-sm border border-gray-100 dark:border-slate-700">
                 <i id="themeIcon" class="fas fa-moon text-xl"></i>
             </button>
         </header>
@@ -76,9 +73,9 @@
                 <!-- Player -->
                 <div class="lg:col-span-8 space-y-6">
                     <div class="video-container">
-                        <!-- Poster actualizado con la nueva imagen -->
-                        <video id="mainPlayer" controls autoplay muted class="w-full" poster="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglg169THzqP_o0wNpe4IJjpWjdwq-W9j_auZ0e3I1W6gMWEWmOClHhT4WrDuE5vAd6o5Xco7O9bwxIUzw5YR3maoYp935TaSUYnQ9xZsVThbyGtf2xssmYltNeD9ULT7GLyFvZ6uTPY6Ca7uA0lbt7UkuflK_p2_-YBsAyeu01xkUWLWI2C4Naa3KRCDk/s320/ChatGPT%20Image%2017%20feb%202026,%2010_58_47%20a.m..png">
-                            <source id="videoSource" src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        <!-- Poster añadido para que se vea la imagen de fondo en MP3 -->
+                        <video id="mainPlayer" controls="" autoplay="" muted="" class="w-full" poster="https://r.jina.ai/i/037a541603ba45048d0df7329591e0a8">
+                            <source id="videoSource" src="El Chombo presenta_ La Música de los 80 (canal original).mp3" type="audio/mpeg">
                         </video>
                     </div>
 
@@ -87,10 +84,10 @@
                             <div>
                                 <div class="flex items-center gap-2 mb-2">
                                     <span class="flex h-3 w-3 relative"><span class="animate-ping absolute h-full w-full rounded-full bg-red-400 opacity-75"></span><span class="bg-red-500 rounded-full h-3 w-3"></span></span>
-                                    <p class="text-sm font-bold uppercase text-red-500 tracking-widest">En directo</p>
+                                    <p class="text-sm font-bold uppercase text-red-500">En el aire</p>
                                 </div>
-                                <h2 id="displayTitle" class="text-3xl font-extrabold mb-2">Señal Oficial</h2>
-                                <p id="displayDesc" class="text-gray-500 dark:text-gray-400 text-lg">Disfrutando de la mejor programación de Radio Alonso.</p>
+                                <h2 id="displayTitle" class="text-3xl font-extrabold mb-2">El Chombo presenta_ La Música de los 80</h2>
+                                <p id="displayDesc" class="text-gray-500 dark:text-gray-400 text-lg">Bienvenidos a la señal oficial de Radio Alonso.</p>
                             </div>
                         </div>
                     </div>
@@ -98,18 +95,15 @@
 
                 <!-- Schedule -->
                 <div class="lg:col-span-4">
-                    <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 shadow-xl border border-gray-100 dark:border-slate-700 h-full">
-                        <div class="flex items-center gap-3 mb-8">
-                             <div class="h-8 w-1 bg-blue-600 rounded-full"></div>
-                             <h3 class="font-black text-xl tracking-tight">PROGRAMACIÓN</h3>
+                    <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 shadow-xl border border-gray-100 dark:border-slate-700">
+                        <div class="flex items-center gap-3 mb-6">
+                             <i class="fas fa-calendar-alt text-blue-600 text-xl"></i>
+                             <h3 class="font-black text-xl">PROGRAMACIÓN</h3>
                         </div>
-                        <div class="space-y-6">
-                            <div class="p-5 rounded-2xl bg-blue-50 dark:bg-slate-700/50 border border-blue-100 dark:border-slate-600">
-                                <p class="font-bold text-blue-700 dark:text-blue-400">Reportajes Especiales</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 italic">Contenido exclusivo y entrevistas.</p>
-                                <div class="mt-3 flex items-center gap-2 text-xs font-bold text-gray-400">
-                                    <i class="far fa-clock"></i> 24 Horas
-                                </div>
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-2xl bg-blue-50 dark:bg-slate-700/50 border border-blue-100 dark:border-slate-600">
+                                <p class="font-bold">Reportajes Especiales</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Transmisión 24/7</p>
                             </div>
                         </div>
                     </div>
@@ -117,42 +111,39 @@
             </div>
         </main>
 
-        <footer class="p-10 text-center text-gray-500 text-xs font-medium uppercase tracking-[0.3em]">
-            &copy; 2024 Radio Alonso &bull; Digital Broadcasting
+        <footer class="p-10 text-center text-gray-500 text-sm">
+            © 2024 Radio Alonso.
         </footer>
     </div>
 
     <!-- Admin Trigger -->
-    <button onclick="toggleAdmin()" class="fixed bottom-6 right-6 p-4 bg-blue-600 text-white rounded-2xl shadow-2xl hover:scale-110 hover:rotate-12 transition-all z-40 border-2 border-white dark:border-slate-800">
+    <button onclick="toggleAdmin()" class="fixed bottom-6 right-6 p-4 bg-slate-900 text-white rounded-full shadow-2xl hover:scale-110 transition-transform z-40 border-2 border-blue-500">
         <i class="fas fa-cog text-xl"></i>
     </button>
 
     <!-- Admin Panel -->
     <div id="adminPanel" class="admin-panel fixed top-0 right-0 h-full w-full max-w-md bg-white dark:bg-slate-900 shadow-2xl z-50 p-8 overflow-y-auto border-l border-gray-200 dark:border-slate-700">
         <div class="flex justify-between items-center mb-8">
-            <h3 class="text-2xl font-black italic tracking-tighter text-blue-600">ADMINISTRADOR</h3>
-            <button onclick="toggleAdmin()" class="text-red-500 text-4xl font-light hover:scale-110 transition-transform">&times;</button>
+            <h3 class="text-2xl font-black italic">PANEL DE CONTROL</h3>
+            <button onclick="toggleAdmin()" class="text-red-500 text-3xl font-bold">×</button>
         </div>
 
         <div class="space-y-6">
-            <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-2xl border border-gray-100 dark:border-slate-700">
-                <div class="mb-4">
-                    <label class="block text-[10px] font-black mb-2 uppercase tracking-widest text-gray-400">Título del Programa:</label>
-                    <input type="text" id="inputTitle" placeholder="Ej: Reportaje de Hoy" class="w-full p-4 rounded-xl border border-gray-200 dark:bg-slate-900 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all font-bold">
-                </div>
-                <div>
-                    <label class="block text-[10px] font-black mb-2 uppercase tracking-widest text-gray-400">Enlace del MP3 / MP4:</label>
-                    <input type="text" id="inputURL" placeholder="https://tusitio.com/audio.mp3" class="w-full p-4 rounded-xl border border-gray-200 dark:bg-slate-900 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all">
-                </div>
+            <div>
+                <label class="block text-sm font-bold mb-2 uppercase tracking-wide">Título del Programa:</label>
+                <input type="text" id="inputTitle" placeholder="Ej: Mi Reportaje MP3" class="w-full p-4 rounded-xl border border-gray-200 dark:bg-slate-800 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all" value="El Chombo presenta_ La Música de los 80">
             </div>
-
-            <button onclick="generateFullCode()" class="w-full py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black text-lg shadow-xl shadow-blue-500/30 transition-all uppercase tracking-tight">1. Generar Todo el Código</button>
+            <div>
+                <label class="block text-sm font-bold mb-2 uppercase tracking-wide">URL del MP3 / MP4:</label>
+                <input type="text" id="inputURL" placeholder="https://ejemplo.com/archivo.mp3" class="w-full p-4 rounded-xl border border-gray-200 dark:bg-slate-800 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all" value="El Chombo presenta_ La Música de los 80 (canal original).mp3">
+            </div>
+            <button onclick="generateFullCode()" class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-black text-lg shadow-xl shadow-blue-500/20 transition-all">1. GENERAR CÓDIGO COMPLETO</button>
             
             <div class="mt-8">
-                <label class="block text-[10px] font-black mb-2 text-blue-500 uppercase tracking-widest">Código resultante:</label>
-                <textarea id="outputCode" readonly class="w-full h-64 p-4 text-[9px] font-mono bg-gray-900 text-green-400 rounded-xl border-none resize-none custom-scrollbar"></textarea>
-                <button onclick="copyAdminCode()" class="w-full mt-4 py-5 bg-slate-800 hover:bg-black text-white rounded-2xl font-black transition-all flex items-center justify-center gap-3 uppercase tracking-tighter">
-                    <i class="fas fa-copy"></i> 2. Copiar y subir a GitHub
+                <label class="block text-sm font-bold mb-2 text-blue-500 uppercase tracking-wide">Copia todo este código:</label>
+                <textarea id="outputCode" readonly="" class="w-full h-64 p-4 text-[10px] font-mono bg-gray-50 dark:bg-black rounded-xl border border-gray-200 dark:border-slate-700 resize-none"></textarea>
+                <button onclick="copyAdminCode()" class="w-full mt-4 py-4 bg-slate-800 hover:bg-black text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2">
+                    <i class="fas fa-copy"></i> 2. COPIAR Y LISTO
                 </button>
             </div>
         </div>
@@ -164,7 +155,7 @@
         }
 
         function generateFullCode() {
-            const title = document.getElementById('inputTitle').value || "Señal Oficial";
+            const title = document.getElementById('inputTitle').value || "Programa Actual";
             const url = document.getElementById('inputURL').value || "";
             const type = url.toLowerCase().endsWith('.mp3') ? 'audio/mpeg' : 'video/mp4';
 
@@ -176,16 +167,16 @@
             source.type = type;
             player.load();
 
-            // Clonar documento para generar código limpio
+            // Clonar documento para generar código
             const doc = document.implementation.createHTMLDocument(document.title);
             doc.documentElement.innerHTML = document.documentElement.innerHTML;
             
-            // Limpiar estado del panel en el código generado
+            // Limpiar valores innecesarios en el código generado
             const adminPanelInDoc = doc.getElementById('adminPanel');
             adminPanelInDoc.classList.remove('open');
             doc.getElementById('outputCode').value = "";
             
-            // Inyectar los datos reales en el código a exportar
+            // Actualizar los datos reales
             doc.getElementById('videoSource').setAttribute('src', url);
             doc.getElementById('videoSource').setAttribute('type', type);
             doc.getElementById('displayTitle').innerText = title;
@@ -198,12 +189,12 @@
         function copyAdminCode() {
             const copyText = document.getElementById('outputCode');
             if(!copyText.value) {
-                alert("Jorge, primero escribe el título y la URL, luego dale a 'Generar'");
+                alert("Primero debes hacer clic en 'GENERAR CÓDIGO COMPLETO'");
                 return;
             }
             copyText.select();
             document.execCommand('copy');
-            alert("¡Excelente Jorge! Código completo copiado. Ahora reemplaza todo en GitHub.");
+            alert("¡Código completo con logo incluido copiado! Ya puedes pegarlo en GitHub.");
         }
 
         const themeToggle = document.getElementById('themeToggle');
@@ -213,5 +204,6 @@
             document.getElementById('themeIcon').className = isDark ? 'fas fa-moon text-xl' : 'fas fa-sun text-xl';
         });
     </script>
-</body>
-</html>
+
+
+</body></html>
