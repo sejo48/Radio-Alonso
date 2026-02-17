@@ -10,71 +10,53 @@
         :root {
             --bg-light: #f8fafc;
             --text-light: #1e293b;
-            --card-light: #ffffff;
             --bg-dark: #0f172a;
             --text-dark: #f1f5f9;
-            --card-dark: #1e293b;
         }
 
-        body.light {
-            background-color: var(--bg-light);
-            color: var(--text-light);
-        }
-
-        body.dark {
-            background-color: var(--bg-dark);
-            color: var(--text-dark);
-        }
+        body.light { background-color: var(--bg-light); color: var(--text-light); }
+        body.dark { background-color: var(--bg-dark); color: var(--text-dark); }
 
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 1.5rem;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             background: #000;
         }
 
         .video-container iframe, .video-container video {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+            top: 0; left: 0; width: 100%; height: 100%; border: none;
         }
 
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
+        .admin-panel {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background-color: #3b82f6;
-            border-radius: 10px;
-        }
+        .admin-panel.open { transform: translateX(0); }
 
-        .transition-all-custom {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        .transition-all-custom { transition: all 0.4s ease; }
     </style>
 </head>
-<body class="dark transition-all-custom custom-scrollbar">
+<body class="dark transition-all-custom">
 
     <div class="min-h-screen flex flex-col">
         <!-- Header -->
         <header class="p-5 lg:p-8 flex justify-between items-center max-w-7xl mx-auto w-full">
             <div class="flex items-center gap-4">
-                <div class="bg-gradient-to-br from-blue-500 to-blue-700 p-3 rounded-2xl text-white shadow-xl rotate-3">
+                <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-3 rounded-2xl text-white shadow-xl">
                     <i class="fas fa-radio text-3xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-3xl font-black tracking-tight uppercase">Radio <span class="text-blue-600">Alonso</span></h1>
-                    <p class="text-xs font-medium text-gray-500 dark:text-gray-400 tracking-[0.2em]">EMISIÓN DIGITAL</p>
+                    <h1 class="text-3xl font-black uppercase">Radio <span class="text-blue-600">Alonso</span></h1>
+                    <p class="text-xs font-bold text-gray-500 tracking-widest">EMISIÓN DIGITAL</p>
                 </div>
             </div>
-            
-            <button id="themeToggle" class="p-4 rounded-2xl bg-white dark:bg-slate-800 text-yellow-500 dark:text-yellow-300 shadow-sm border border-gray-100 dark:border-slate-700 transition-all-custom hover:scale-110 active:scale-95">
+            <button id="themeToggle" class="p-4 rounded-2xl bg-white dark:bg-slate-800 text-yellow-500 shadow-sm border border-gray-100 dark:border-slate-700">
                 <i id="themeIcon" class="fas fa-moon text-xl"></i>
             </button>
         </header>
@@ -83,147 +65,123 @@
         <main class="flex-grow p-4 lg:p-8 max-w-7xl mx-auto w-full">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 
-                <!-- Player Section (8 columns) -->
+                <!-- Player -->
                 <div class="lg:col-span-8 space-y-6">
-                    <div class="video-container group">
-                        <!-- Default Video (Change 'src' for your streaming/video) -->
+                    <div class="video-container">
+                        <!-- ESTE ES EL REPRODUCTOR QUE EL ADMIN ACTUALIZA -->
                         <video id="mainPlayer" controls autoplay muted class="w-full">
-                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                            Tu navegador no soporta el reproductor de video.
+                            <source id="videoSource" src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                         </video>
                     </div>
 
                     <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 shadow-xl border border-gray-100 dark:border-slate-700">
                         <div class="flex flex-wrap justify-between items-center gap-4">
                             <div>
-                                <div class="flex items-center gap-2 mb-3">
-                                    <span class="flex h-3 w-3 relative">
-                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                                        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
-                                    </span>
-                                    <p class="text-sm font-bold uppercase tracking-widest text-red-500">Transmitiendo Ahora</p>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="flex h-3 w-3 relative"><span class="animate-ping absolute h-full w-full rounded-full bg-red-400 opacity-75"></span><span class="bg-red-500 rounded-full h-3 w-3"></span></span>
+                                    <p class="text-sm font-bold uppercase text-red-500">En el aire</p>
                                 </div>
-                                <h2 class="text-3xl font-extrabold mb-2">Grandes Éxitos & Noticias</h2>
-                                <p class="text-gray-500 dark:text-gray-400 max-w-md text-lg">La señal que acompaña tu día con la mejor calidad de audio y video desde Radio Alonso.</p>
-                            </div>
-                            <div class="flex gap-2">
-                                <button onclick="window.location.reload()" class="p-4 bg-gray-100 dark:bg-slate-700 rounded-2xl hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
-                                    <i class="fas fa-sync-alt"></i>
-                                </button>
-                                <button onclick="copyLink()" class="flex items-center gap-2 px-6 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-bold transition-all shadow-lg shadow-blue-600/30">
-                                    <i class="fas fa-share-nodes"></i> Compartir
-                                </button>
+                                <h2 id="displayTitle" class="text-3xl font-extrabold mb-2">Programa Actual</h2>
+                                <p id="displayDesc" class="text-gray-500 dark:text-gray-400 text-lg">Bienvenidos a la señal oficial de Radio Alonso.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Sidebar (4 columns) -->
-                <div class="lg:col-span-4 space-y-6">
-                    <!-- Schedule Card -->
+                <!-- Schedule -->
+                <div class="lg:col-span-4">
                     <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 shadow-xl border border-gray-100 dark:border-slate-700">
-                        <h3 class="font-black text-xl mb-6 flex items-center gap-3">
-                            <i class="fas fa-calendar-day text-blue-500"></i> PROGRAMACIÓN
-                        </h3>
-                        <div class="space-y-5">
-                            <div class="group flex gap-4 p-4 rounded-2xl hover:bg-blue-50 dark:hover:bg-slate-700/50 transition-all border border-transparent hover:border-blue-100">
-                                <div class="bg-blue-100 dark:bg-slate-700 text-blue-600 dark:text-blue-400 h-14 w-14 rounded-2xl flex items-center justify-center shrink-0 font-bold group-hover:scale-110 transition-transform">
-                                    08
-                                </div>
-                                <div>
-                                    <p class="font-bold">Café con Alonso</p>
-                                    <p class="text-sm text-gray-500">Noticias y Actualidad</p>
-                                </div>
+                        <h3 class="font-black text-xl mb-6">PROGRAMACIÓN</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-2xl bg-blue-50 dark:bg-slate-700/50 border border-blue-100">
+                                <p class="font-bold">Reportajes Especiales</p>
+                                <p class="text-sm text-gray-500">Transmisión 24/7</p>
                             </div>
-                            <div class="group flex gap-4 p-4 rounded-2xl hover:bg-blue-50 dark:hover:bg-slate-700/50 transition-all border border-transparent hover:border-blue-100">
-                                <div class="bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 h-14 w-14 rounded-2xl flex items-center justify-center shrink-0 font-bold group-hover:scale-110 transition-transform">
-                                    14
-                                </div>
-                                <div>
-                                    <p class="font-bold">Retro Mix</p>
-                                    <p class="text-sm text-gray-500">Clásicos de los 80s y 90s</p>
-                                </div>
-                            </div>
-                            <div class="group flex gap-4 p-4 rounded-2xl hover:bg-blue-50 dark:hover:bg-slate-700/50 transition-all border border-transparent hover:border-blue-100">
-                                <div class="bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 h-14 w-14 rounded-2xl flex items-center justify-center shrink-0 font-bold group-hover:scale-110 transition-transform">
-                                    20
-                                </div>
-                                <div>
-                                    <p class="font-bold">Noche de Gala</p>
-                                    <p class="text-sm text-gray-500">Música instrumental</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- App Info -->
-                    <div class="p-6 rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-xl">
-                        <p class="text-xs uppercase tracking-widest opacity-80 mb-2">Versión Web 1.0</p>
-                        <h4 class="text-xl font-bold mb-4">Radio Alonso en tu móvil</h4>
-                        <p class="text-sm opacity-90 leading-relaxed mb-4">Agrega este sitio a tu pantalla de inicio para acceder rápidamente como una aplicación.</p>
-                        <div class="flex gap-4">
-                            <i class="fab fa-apple text-2xl"></i>
-                            <i class="fab fa-android text-2xl"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
 
-        <!-- Notification Toast -->
-        <div id="statusToast" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden">
-            <div class="bg-slate-900 text-white px-8 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-slate-700">
-                <i class="fas fa-check-circle text-green-400"></i>
-                <span class="font-bold">Enlace copiado con éxito</span>
+        <!-- Admin Trigger -->
+        <button onclick="toggleAdmin()" class="fixed bottom-6 right-6 p-4 bg-slate-900 text-white rounded-full shadow-2xl hover:scale-110 transition-transform z-40">
+            <i class="fas fa-cog"></i>
+        </button>
+
+        <!-- Admin Panel -->
+        <div id="adminPanel" class="admin-panel fixed top-0 right-0 h-full w-full max-w-md bg-white dark:bg-slate-900 shadow-2xl z-50 p-8 overflow-y-auto">
+            <div class="flex justify-between items-center mb-8">
+                <h3 class="text-2xl font-black italic">PANEL DE CONTROL</h3>
+                <button onclick="toggleAdmin()" class="text-red-500 text-2xl">&times;</button>
+            </div>
+
+            <div class="space-y-6">
+                <div>
+                    <label class="block text-sm font-bold mb-2">Título del Programa:</label>
+                    <input type="text" id="inputTitle" placeholder="Ej: Reportaje Semanal" class="w-full p-3 rounded-xl border dark:bg-slate-800 dark:border-slate-700">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold mb-2">URL del MP3 / MP4:</label>
+                    <input type="text" id="inputURL" placeholder="https://tusitio.com/audio.mp3" class="w-full p-3 rounded-xl border dark:bg-slate-800 dark:border-slate-700">
+                </div>
+                <button onclick="generateCode()" class="w-full py-4 bg-blue-600 text-white rounded-xl font-bold shadow-lg">1. Generar Actualización</button>
+                
+                <div class="mt-8">
+                    <label class="block text-sm font-bold mb-2 text-blue-500">Copia este código y pégalo en tu index.html:</label>
+                    <textarea id="outputCode" readonly class="w-full h-48 p-3 text-xs font-mono bg-gray-100 dark:bg-black rounded-xl border-none"></textarea>
+                    <button onclick="copyAdminCode()" class="w-full mt-2 py-2 bg-slate-700 text-white rounded-lg text-sm">2. Copiar Código</button>
+                </div>
             </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="p-10 text-center border-t border-gray-100 dark:border-slate-800">
-            <div class="flex justify-center gap-6 mb-6">
-                <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors text-2xl"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors text-2xl"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-gray-400 hover:text-pink-500 transition-colors text-2xl"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-gray-400 hover:text-red-600 transition-colors text-2xl"><i class="fab fa-youtube"></i></a>
-            </div>
-            <p class="text-gray-500 font-medium">&copy; 2024 Radio Alonso. Subido a GitHub Pages.</p>
+        <footer class="p-10 text-center text-gray-500 text-sm">
+            &copy; 2024 Radio Alonso.
         </footer>
     </div>
 
     <script>
-        const body = document.body;
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-
-        // Theme Management
-        themeToggle.addEventListener('click', () => {
-            const isDark = body.classList.toggle('dark');
-            body.classList.toggle('light', !isDark);
-            themeIcon.className = isDark ? 'fas fa-moon text-xl' : 'fas fa-sun text-xl';
-            localStorage.setItem('radio-alonso-theme', isDark ? 'dark' : 'light');
-        });
-
-        // Load Saved Theme
-        if (localStorage.getItem('radio-alonso-theme') === 'light') {
-            body.classList.replace('dark', 'light');
-            themeIcon.className = 'fas fa-sun text-xl';
+        function toggleAdmin() {
+            document.getElementById('adminPanel').classList.toggle('open');
         }
 
-        // Copy Link Function
-        function copyLink() {
-            const dummy = document.createElement('input');
-            document.body.appendChild(dummy);
-            dummy.value = window.location.href;
-            dummy.select();
-            document.execCommand('copy');
-            document.body.removeChild(dummy);
+        function generateCode() {
+            const title = document.getElementById('inputTitle').value || "Programa Actual";
+            const url = document.getElementById('inputURL').value || "URL_AQUI";
+            const type = url.endsWith('.mp3') ? 'audio/mpeg' : 'video/mp4';
+
+            // Actualizar vista previa local
+            document.getElementById('displayTitle').innerText = title;
+            const player = document.getElementById('mainPlayer');
+            const source = document.getElementById('videoSource');
+            source.src = url;
+            source.type = type;
+            player.load();
+
+            // Generar fragmento para copiar
+            const code = `<!-- BUSCA LA ETIQUETA VIDEO Y REEMPLAZA ESTO -->
+<video id="mainPlayer" controls autoplay muted class="w-full">
+    <source id="videoSource" src="${url}" type="${type}">
+</video>
+<!-- Y BUSCA EL TÍTULO Y REEMPLAZA ESTO -->
+<h2 id="displayTitle" class="text-3xl font-extrabold mb-2">${title}</h2>`;
             
-            const toast = document.getElementById('statusToast');
-            toast.classList.remove('hidden');
-            setTimeout(() => {
-                toast.classList.add('hidden');
-            }, 3000);
+            document.getElementById('outputCode').value = code;
         }
+
+        function copyAdminCode() {
+            const copyText = document.getElementById('outputCode');
+            copyText.select();
+            document.execCommand('copy');
+            alert("¡Código copiado! Ahora pégalo en tu archivo de GitHub para actualizar.");
+        }
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.body.classList.toggle('dark');
+            document.body.classList.toggle('light', !isDark);
+            document.getElementById('themeIcon').className = isDark ? 'fas fa-moon text-xl' : 'fas fa-sun text-xl';
+        });
     </script>
 </body>
 </html>
