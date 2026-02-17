@@ -23,7 +23,7 @@
             height: 0;
             overflow: hidden;
             border-radius: 1.5rem;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
             background: #000;
         }
 
@@ -31,7 +31,7 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%; border: none;
             object-fit: contain;
-            background-color: #000;
+            background-color: #111;
         }
 
         .admin-panel {
@@ -44,10 +44,10 @@
         .transition-all-custom { transition: all 0.4s ease; }
         
         .logo-img {
-            height: 70px;
+            height: 80px;
             width: auto;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-            border-radius: 12px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+            border-radius: 15px;
             display: block;
         }
     </style>
@@ -58,11 +58,11 @@
         <!-- Header -->
         <header class="p-5 lg:p-8 flex justify-between items-center max-w-7xl mx-auto w-full">
             <div class="flex items-center gap-4">
-                <!-- Imagen de Logotipo con enlace directo verificado -->
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglg169THzqP_o0wNpe4IJjpWjdwq-W9j_auZ0e3I1W6gMWEWmOClHhT4WrDuE5vAd6o5Xco7O9bwxIUzw5YR3maoYp935TaSUYnQ9xZsVThbyGtf2xssmYltNeD9ULT7GLyFvZ6uTPY6Ca7uA0lbt7UkuflK_p2_-YBsAyeu01xkUWLWI2C4Naa3KRCDk/s320/ChatGPT%20Image%2017%20feb%202026,%2010_58_47%20a.m..png" alt="Logo Radio Alonso" class="logo-img" onerror="this.src='https://via.placeholder.com/150?text=Radio+Alonso'">
+                <!-- Imagen del logo desde Google Drive corregida -->
+                <img id="mainLogo" src="https://lh3.googleusercontent.com/u/0/d/13pc6A1mEYO66Vf2UgasEX4_AtHu5KbJo=w1000-h1000" alt="Logo Radio Alonso" class="logo-img">
                 <div class="hidden sm:block">
-                    <h1 class="text-3xl font-black uppercase leading-none tracking-tight">Radio <span class="text-blue-600">Alonso</span></h1>
-                    <p class="text-xs font-bold text-gray-500 tracking-[0.2em] mt-1 italic">Voz e Imagen Digital</p>
+                    <h1 class="text-3xl font-black uppercase leading-none tracking-tight">Radio <span class="text-blue-500">Alonso</span></h1>
+                    <p class="text-xs font-bold text-gray-500 tracking-[0.2em] mt-1 italic uppercase">Voz e Imagen Digital</p>
                 </div>
             </div>
             <button id="themeToggle" class="p-4 rounded-2xl bg-white dark:bg-slate-800 text-yellow-500 shadow-sm border border-gray-100 dark:border-slate-700 hover:scale-105 transition-transform">
@@ -77,8 +77,8 @@
                 <!-- Player -->
                 <div class="lg:col-span-8 space-y-6">
                     <div class="video-container">
-                        <!-- Poster para que se vea la imagen cuando hay solo audio -->
-                        <video id="mainPlayer" controls autoplay muted class="w-full" poster="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglg169THzqP_o0wNpe4IJjpWjdwq-W9j_auZ0e3I1W6gMWEWmOClHhT4WrDuE5vAd6o5Xco7O9bwxIUzw5YR3maoYp935TaSUYnQ9xZsVThbyGtf2xssmYltNeD9ULT7GLyFvZ6uTPY6Ca7uA0lbt7UkuflK_p2_-YBsAyeu01xkUWLWI2C4Naa3KRCDk/s320/ChatGPT%20Image%2017%20feb%202026,%2010_58_47%20a.m..png">
+                        <!-- Poster desde Google Drive corregido -->
+                        <video id="mainPlayer" controls autoplay muted class="w-full" poster="https://lh3.googleusercontent.com/u/0/d/13pc6A1mEYO66Vf2UgasEX4_AtHu5KbJo=w1000-h1000">
                             <source id="videoSource" src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -90,7 +90,7 @@
                                     <span class="flex h-3 w-3 relative"><span class="animate-ping absolute h-full w-full rounded-full bg-red-400 opacity-75"></span><span class="bg-red-500 rounded-full h-3 w-3"></span></span>
                                     <p class="text-sm font-bold uppercase text-red-500 tracking-widest">En directo</p>
                                 </div>
-                                <h2 id="displayTitle" class="text-3xl font-extrabold mb-2">Señal Oficial</h2>
+                                <h2 id="displayTitle" class="text-3xl font-extrabold mb-2 uppercase tracking-tighter">Señal Oficial</h2>
                                 <p id="displayDesc" class="text-gray-500 dark:text-gray-400 text-lg">Disfrutando de la mejor programación de Radio Alonso.</p>
                             </div>
                         </div>
@@ -101,13 +101,13 @@
                 <div class="lg:col-span-4 h-full">
                     <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 shadow-xl border border-gray-100 dark:border-slate-700 h-full">
                         <div class="flex items-center gap-3 mb-8">
-                             <div class="h-8 w-1 bg-blue-600 rounded-full"></div>
-                             <h3 class="font-black text-xl tracking-tight">PROGRAMACIÓN</h3>
+                             <div class="h-8 w-2 bg-blue-600 rounded-full"></div>
+                             <h3 class="font-black text-xl tracking-tight uppercase">Programación</h3>
                         </div>
                         <div class="space-y-6">
                             <div class="p-5 rounded-2xl bg-blue-50 dark:bg-slate-700/50 border border-blue-100 dark:border-slate-600">
-                                <p class="font-bold text-blue-700 dark:text-blue-400">Reportajes Especiales</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 italic">Contenido exclusivo y entrevistas.</p>
+                                <p class="font-bold text-blue-700 dark:text-blue-400 uppercase text-sm">Reportajes Especiales</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 italic">Contenido exclusivo y entrevistas en vivo.</p>
                             </div>
                         </div>
                     </div>
@@ -128,29 +128,29 @@
     <!-- Admin Panel -->
     <div id="adminPanel" class="admin-panel fixed top-0 right-0 h-full w-full max-w-md bg-white dark:bg-slate-900 shadow-2xl z-50 p-8 overflow-y-auto border-l border-gray-200 dark:border-slate-700">
         <div class="flex justify-between items-center mb-8">
-            <h3 class="text-2xl font-black italic text-blue-600">ADMINISTRADOR</h3>
-            <button onclick="toggleAdmin()" class="text-red-500 text-4xl">&times;</button>
+            <h3 class="text-2xl font-black italic text-blue-600 uppercase tracking-tighter">Panel Administrador</h3>
+            <button onclick="toggleAdmin()" class="text-red-500 text-4xl leading-none">&times;</button>
         </div>
 
         <div class="space-y-6">
             <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-2xl border border-gray-100 dark:border-slate-700">
                 <div class="mb-4">
                     <label class="block text-[10px] font-black mb-2 uppercase tracking-widest text-gray-400">Título del Programa:</label>
-                    <input type="text" id="inputTitle" placeholder="Ej: Reportaje de Hoy" class="w-full p-4 rounded-xl border dark:bg-slate-900 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none font-bold">
+                    <input type="text" id="inputTitle" placeholder="Ej: Entrevista MP3" class="w-full p-4 rounded-xl border dark:bg-slate-900 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none font-bold uppercase">
                 </div>
                 <div>
-                    <label class="block text-[10px] font-black mb-2 uppercase tracking-widest text-gray-400">Enlace del MP3 / MP4:</label>
-                    <input type="text" id="inputURL" placeholder="https://tusitio.com/archivo.mp3" class="w-full p-4 rounded-xl border dark:bg-slate-900 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none">
+                    <label class="block text-[10px] font-black mb-2 uppercase tracking-widest text-gray-400">Enlace MP3 / MP4:</label>
+                    <input type="text" id="inputURL" placeholder="https://ejemplo.com/reportaje.mp3" class="w-full p-4 rounded-xl border dark:bg-slate-900 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none">
                 </div>
             </div>
 
-            <button onclick="generateFullCode()" class="w-full py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black text-lg shadow-xl transition-all uppercase">1. Generar Todo el Código</button>
+            <button onclick="generateFullCode()" class="w-full py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black text-lg shadow-xl transition-all uppercase tracking-tight">1. Generar Nuevo Código</button>
             
             <div class="mt-8">
-                <label class="block text-[10px] font-black mb-2 text-blue-500 uppercase tracking-widest">Código resultante:</label>
+                <label class="block text-[10px] font-black mb-2 text-blue-500 uppercase tracking-widest">Código para GitHub:</label>
                 <textarea id="outputCode" readonly class="w-full h-64 p-4 text-[9px] font-mono bg-gray-900 text-green-400 rounded-xl resize-none"></textarea>
                 <button onclick="copyAdminCode()" class="w-full mt-4 py-5 bg-slate-800 hover:bg-black text-white rounded-2xl font-black transition-all flex items-center justify-center gap-3 uppercase">
-                    <i class="fas fa-copy"></i> 2. Copiar y subir a GitHub
+                    <i class="fas fa-copy"></i> 2. Copiar y Pegar en GitHub
                 </button>
             </div>
         </div>
@@ -173,6 +173,7 @@
             source.type = type;
             player.load();
 
+            // Clonar para exportar
             const doc = document.implementation.createHTMLDocument(document.title);
             doc.documentElement.innerHTML = document.documentElement.innerHTML;
             
@@ -192,12 +193,12 @@
         function copyAdminCode() {
             const copyText = document.getElementById('outputCode');
             if(!copyText.value) {
-                alert("Jorge, primero genera el código.");
+                alert("Jorge, recuerda generar el código primero.");
                 return;
             }
             copyText.select();
             document.execCommand('copy');
-            alert("¡Copiado! Ahora pégalo en GitHub.");
+            alert("¡Listo Jorge! El código está en tu portapapeles. Pégalo en tu index.html de GitHub.");
         }
 
         const themeToggle = document.getElementById('themeToggle');
