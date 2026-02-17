@@ -24,7 +24,6 @@
             overflow: hidden;
             border-radius: 1.5rem;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
-            /* Imagen de respaldo siempre visible en el fondo */
             background: #000 url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglg169THzqP_o0wNpe4IJjpWjdwq-W9j_auZ0e3I1W6gMWEWmOClHhT4WrDuE5vAd6o5Xco7O9bwxIUzw5YR3maoYp935TaSUYnQ9xZsVThbyGtf2xssmYltNeD9ULT7GLyFvZ6uTPY6Ca7uA0lbt7UkuflK_p2_-YBsAyeu01xkUWLWI2C4Naa3KRCDk/s1600/ChatGPT%20Image.png') no-repeat center center;
             background-size: contain;
         }
@@ -35,7 +34,6 @@
             object-fit: contain;
         }
 
-        /* Asegura que el video sea transparente si no hay imagen para mostrar el fondo */
         video { background: transparent; }
 
         .admin-panel {
@@ -79,12 +77,12 @@
         <!-- Main Content -->
         <main class="flex-grow p-4 lg:p-8 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
             
-            <!-- Player -->
             <div class="lg:col-span-8 space-y-6">
                 <div class="video-container" id="playerWrapper">
-                    <video id="mainPlayer" controls autoplay muted playsinline class="w-full" poster="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglg169THzqP_o0wNpe4IJjpWjdwq-W9j_auZ0e3I1W6gMWEWmOClHhT4WrDuE5vAd6o5Xco7O9bwxIUzw5YR3maoYp935TaSUYnQ9xZsVThbyGtf2xssmYltNeD9ULT7GLyFvZ6uTPY6Ca7uA0lbt7UkuflK_p2_-YBsAyeu01xkUWLWI2C4Naa3KRCDk/s1600/ChatGPT%20Image.png">
-                        <source id="videoSource" src="" type="video/mp4">
-                    </video>
+                    <!-- Reproductor inicial -->
+                    <div class="absolute inset-0 flex items-center justify-center text-white text-center p-10 bg-black/40">
+                        <p class="font-black uppercase text-xl">Haz clic para iniciar la señal</p>
+                    </div>
                 </div>
 
                 <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 shadow-xl border border-gray-100 dark:border-slate-700">
@@ -92,12 +90,11 @@
                         <span class="bg-red-500 rounded-full h-2 w-2 animate-pulse"></span>
                         <p class="text-[10px] font-black uppercase text-red-500">Transmitiendo</p>
                     </div>
-                    <h2 id="nowPlayingTitle" class="text-2xl font-black text-blue-600 dark:text-blue-400 uppercase tracking-tighter">Radio Alonso Online</h2>
-                    <p class="text-gray-500 text-sm italic">Tu conexión digital preferida.</p>
+                    <h2 id="nowPlayingTitle" class="text-2xl font-black text-blue-600 dark:text-blue-400 uppercase tracking-tighter italic">Radio Alonso Online</h2>
+                    <p class="text-gray-500 text-sm">Tu conexión digital preferida.</p>
                 </div>
             </div>
 
-            <!-- Playlist Lateral (Pública - Solo para ver) -->
             <div class="lg:col-span-4">
                 <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 shadow-xl border border-gray-100 dark:border-slate-700 h-full">
                     <h3 class="font-black text-lg uppercase mb-6 flex items-center gap-2">
@@ -111,52 +108,51 @@
         </main>
     </div>
 
-    <!-- Admin Button -->
+    <!-- Botón Admin -->
     <button onclick="requestAdminAccess()" class="fixed bottom-6 right-6 p-4 bg-blue-600 text-white rounded-2xl shadow-2xl z-40 border-2 border-white">
         <i class="fas fa-lock text-xl" id="lockIcon"></i>
     </button>
 
-    <!-- Admin Panel -->
+    <!-- Panel Admin -->
     <div id="adminPanel" class="admin-panel fixed top-0 right-0 h-full w-full max-w-md bg-white dark:bg-slate-900 shadow-2xl z-50 p-6 overflow-y-auto border-l border-gray-200 dark:border-slate-700">
         <div class="flex justify-between items-center mb-8">
-            <h3 class="text-2xl font-black text-blue-600 uppercase">Gestión de Radio</h3>
+            <h3 class="text-2xl font-black text-blue-600 uppercase italic">Administración</h3>
             <button onclick="closeAdmin()" class="text-3xl">&times;</button>
         </div>
 
         <div class="space-y-4">
-            <!-- Formulario -->
-            <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700">
-                <label class="block text-[10px] font-black text-gray-400 uppercase mb-2">Nuevo Elemento:</label>
-                <input type="text" id="inputTitle" placeholder="Título" class="w-full p-3 mb-2 rounded-xl border dark:bg-slate-900 dark:border-slate-700 text-sm outline-none">
-                <input type="text" id="inputURL" placeholder="URL GitHub o YouTube" class="w-full p-3 rounded-xl border dark:bg-slate-900 dark:border-slate-700 text-sm outline-none">
-                <button onclick="addToPlaylist()" class="w-full mt-3 py-3 bg-blue-600 text-white rounded-xl font-bold text-xs uppercase shadow-lg">Agregar a Lista</button>
+            <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border dark:border-slate-700">
+                <label class="block text-[10px] font-black text-gray-400 uppercase mb-2 italic">Añadir Podcast o Video:</label>
+                <input type="text" id="inputTitle" placeholder="Título" class="w-full p-3 mb-2 rounded-xl border dark:bg-slate-900 dark:border-slate-700 text-sm">
+                <input type="text" id="inputURL" placeholder="URL de GitHub o YouTube" class="w-full p-3 rounded-xl border dark:bg-slate-900 dark:border-slate-700 text-sm">
+                <button onclick="addToPlaylist()" class="w-full mt-3 py-3 bg-blue-600 text-white rounded-xl font-bold text-xs uppercase shadow-lg">Agregar y Guardar Lista</button>
             </div>
 
-            <!-- Lista de Control (Donde SÍ se puede borrar) -->
             <div class="mt-6">
-                <label class="block text-[10px] font-black text-red-500 uppercase mb-2 tracking-widest">Control de Lista:</label>
+                <label class="block text-[10px] font-black text-red-500 uppercase mb-2 italic tracking-widest">Editor de Programación:</label>
                 <div id="adminPlaylistContainer" class="space-y-2 mb-6">
-                    <!-- Lista con botones de borrar -->
+                    <!-- Lista con borrar -->
                 </div>
 
                 <label class="block text-[10px] font-black text-blue-500 uppercase mb-2">Código para GitHub:</label>
-                <textarea id="outputCode" readonly class="w-full h-40 p-3 text-[10px] font-mono bg-black text-green-400 rounded-xl resize-none"></textarea>
-                <button onclick="copyCode()" class="w-full mt-3 py-4 bg-slate-800 text-white rounded-2xl font-black uppercase text-xs hover:bg-black transition-colors">Copiar Todo</button>
+                <textarea id="outputCode" readonly class="w-full h-40 p-3 text-[10px] font-mono bg-black text-green-400 rounded-xl resize-none" placeholder="El código aparecerá aquí..."></textarea>
+                <button onclick="copyCode()" class="w-full mt-3 py-4 bg-slate-800 text-white rounded-2xl font-black uppercase text-xs hover:bg-black transition-colors">Copiar código actualizado</button>
             </div>
         </div>
     </div>
 
-    <!-- PIN Modal -->
+    <!-- Modal PIN -->
     <div id="pwdModal" class="hidden fixed inset-0 bg-black/90 z-[60] flex items-center justify-center p-4">
         <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl w-full max-w-xs text-center">
-            <h4 class="font-black mb-4 uppercase text-sm tracking-widest text-gray-500">PIN Maestro</h4>
-            <input type="password" id="pwdInput" placeholder="PIN" class="w-full p-4 mb-4 rounded-xl border text-center font-bold text-3xl tracking-widest outline-none focus:ring-2 focus:ring-blue-500 dark:bg-slate-800 dark:border-slate-700">
+            <h4 class="font-black mb-4 uppercase text-sm text-gray-500 italic">PIN de Seguridad</h4>
+            <input type="password" id="pwdInput" placeholder="PIN" class="w-full p-4 mb-4 rounded-xl border text-center font-bold text-3xl tracking-widest outline-none dark:bg-slate-800 dark:border-slate-700">
             <button onclick="checkPassword()" class="w-full py-3 bg-blue-600 text-white rounded-xl font-bold">ACCEDER</button>
         </div>
     </div>
 
     <script>
         const PIN = "8384";
+        // IMPORTANTE: Al copiar el código de la caja negra, esta variable tendrá toda tu lista.
         let playlist = []; 
         let currentIndex = 0;
         let hasInteracted = false;
@@ -164,8 +160,7 @@
 
         function handleFirstInteraction() {
             if (!hasInteracted) {
-                const p = document.getElementById('mainPlayer');
-                if(p) { p.muted = false; p.play().catch(() => {}); }
+                if(playlist.length > 0) playIndex(0);
                 hasInteracted = true;
             }
         }
@@ -181,6 +176,7 @@
                 document.getElementById('adminPanel').classList.add('open');
                 document.getElementById('lockIcon').className = "fas fa-cog text-xl";
                 renderAdminPlaylist();
+                updateExportCode();
             } else {
                 alert("Incorrecto");
             }
@@ -204,31 +200,29 @@
             updateExportCode();
         }
 
-        // Renderiza la lista para los oyentes (sin botón borrar)
         function renderPlaylist() {
             const container = document.getElementById('playlistContainer');
             container.innerHTML = playlist.length === 0 ? '<p class="text-center text-gray-400 text-xs py-10">Esperando programación...</p>' : playlist.map((item, index) => `
                 <div class="playlist-item p-4 rounded-2xl border dark:border-slate-700 flex items-center gap-3 cursor-pointer transition-all ${index === currentIndex ? 'active ring-2 ring-blue-500' : ''}" onclick="playIndex(${index})">
-                    <span class="text-xs font-bold text-gray-400">${index + 1}</span>
+                    <span class="text-xs font-bold text-gray-400 italic">${index + 1}</span>
                     <p class="text-xs font-black uppercase truncate">${item.title}</p>
                 </div>
             `).join('');
         }
 
-        // Renderiza la lista para el administrador (con botón borrar)
         function renderAdminPlaylist() {
             const container = document.getElementById('adminPlaylistContainer');
             container.innerHTML = playlist.map((item, index) => `
                 <div class="p-3 bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl flex justify-between items-center">
-                    <p class="text-[10px] font-bold uppercase truncate max-w-[200px]">${item.title}</p>
-                    <button onclick="removeItem(${index})" class="text-red-500 hover:scale-110 transition-transform"><i class="fas fa-trash-alt"></i></button>
+                    <p class="text-[10px] font-bold uppercase truncate max-w-[200px] italic">${item.title}</p>
+                    <button onclick="removeItem(${index})" class="text-red-500"><i class="fas fa-trash-alt"></i></button>
                 </div>
             `).join('');
         }
 
         function removeItem(index) {
             playlist.splice(index, 1);
-            if (index === currentIndex) playIndex(0);
+            if (index === currentIndex && playlist.length > 0) playIndex(0);
             renderPlaylist();
             renderAdminPlaylist();
             updateExportCode();
@@ -265,21 +259,22 @@
         }
 
         function updateExportCode() {
-            const doc = document.implementation.createHTMLDocument(document.title);
-            doc.documentElement.innerHTML = document.documentElement.innerHTML;
-            doc.getElementById('adminPanel').classList.remove('open');
-            doc.getElementById('pwdModal').classList.add('hidden');
+            const docClone = document.documentElement.cloneNode(true);
+            docClone.querySelector('#adminPanel').classList.remove('open');
+            docClone.querySelector('#pwdModal').classList.add('hidden');
             
-            const htmlStr = "<!DOCTYPE html>\n" + doc.documentElement.outerHTML;
-            document.getElementById('outputCode').value = htmlStr.replace(/let playlist = \[.*?\];/, `let playlist = ${JSON.stringify(playlist)};`);
+            let htmlStr = "<!DOCTYPE html>\n" + docClone.outerHTML;
+            // Aquí es donde ocurre la magia: inyectamos la lista actual en el código exportado
+            htmlStr = htmlStr.replace(/let playlist = \[.*?\];/, `let playlist = ${JSON.stringify(playlist)};`);
+            
+            document.getElementById('outputCode').value = htmlStr;
         }
 
         function copyCode() {
             const c = document.getElementById('outputCode');
-            if(!c.value) { alert("Añade algo primero."); return; }
             c.select();
             document.execCommand('copy');
-            alert("¡Copiado! Pégalo en GitHub.");
+            alert("Jorge, la lista completa ha sido copiada. Pégala en tu archivo de GitHub para no perder nada.");
         }
 
         document.getElementById('themeToggle').addEventListener('click', () => {
@@ -288,8 +283,7 @@
             document.getElementById('themeIcon').className = isDark ? 'fas fa-moon text-yellow-500' : 'fas fa-sun text-yellow-500';
         });
 
-        window.onload = () => { renderPlaylist(); if(playlist.length > 0) playIndex(0); };
-        document.getElementById('pwdInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') checkPassword(); });
+        window.onload = () => { renderPlaylist(); };
     </script>
 </body>
 </html>
